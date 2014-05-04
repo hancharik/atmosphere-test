@@ -91,5 +91,31 @@ public class PlayerJButton extends JButton{
    }
    
    
-                
+   /*
+        public void checkCollision(){
+       
+       for(int i = 0; i < mainpanel.app.main.screen.numberOfDestinations; i++){
+       if (this.getBounds().intersects(mainpanel.app.main.screen.d1[i].getBounds())){
+       this.setBackground(Color.red);
+        }
+      else if (!this.getBounds().intersects(mainpanel.app.main.screen.d1[i].getBounds())){
+       this.setBackground(Color.yellow);
+         }
+       
+       }
+       
+       if (this.getBounds().intersects(mainpanel.app.main.screen.b1.getBounds())){
+       this.setBackground(Color.red);
+       isHit = true;
+       mainpanel.app.main.screen.score = mainpanel.app.main.screen.score - 50;
+       mainpanel.app.main.screen.totalScore.setText("Score: "+mainpanel.app.main.screen.score);
+        }
+       if (!this.getBounds().intersects(mainpanel.app.main.screen.b1.getBounds())){
+       this.setBackground(Color.yellow);
+         }
+               
+   }
+   
+   * 
+   * */
 }                

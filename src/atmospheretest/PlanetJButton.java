@@ -122,4 +122,44 @@ public class PlanetJButton extends JButton{
                setBounds(new Rectangle( this.getX() + 10, this.getY(), 20, 20));
            }
    }
+   
+           public void checkCollision(){
+       
+       for(int i = 0; i < atmospheretest.GravityTest.game.spacePanel.buttonList.size(); i++){
+       if (this.getBounds().intersects(atmospheretest.GravityTest.game.spacePanel.buttonList.get(i).getBounds())){
+                        //atmospheretest.GravityTest.game.landPanel.
+                                atmospheretest.GravityTest.game.inState = 2;
+                        atmospheretest.GravityTest.game.fromSpace = true;
+			atmospheretest.GravityTest.game.createScreen();
+                        atmospheretest.GravityTest.game.repaint();
+        }
+       /*
+      else if (!this.getBounds().intersects(mainpanel.app.main.screen.d1[i].getBounds())){
+       this.setBackground(Color.yellow);
+         }
+       
+       }
+       
+       if (this.getBounds().intersects(mainpanel.app.main.screen.b1.getBounds())){
+       this.setBackground(Color.red);
+       isHit = true;
+       mainpanel.app.main.screen.score = mainpanel.app.main.screen.score - 50;
+       mainpanel.app.main.screen.totalScore.setText("Score: "+mainpanel.app.main.screen.score);
+        }
+       if (!this.getBounds().intersects(mainpanel.app.main.screen.b1.getBounds())){
+       this.setBackground(Color.yellow);
+         }
+         * */
+               
+   }
+   
+   
+   
+           }
+   
+   
+   
+   
+   
+   
 }    

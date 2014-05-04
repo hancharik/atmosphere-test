@@ -111,16 +111,20 @@ public void keyPressed(KeyEvent e){
 		int k = e.getKeyCode();
 		if(k == e.VK_UP){
 			playerShip.moveUp();
+                        playerShip.checkCollision();
 		}
 		if(k == e.VK_DOWN){
 			playerShip.moveDown();
+                        playerShip.checkCollision();
 		}
 		if(k == e.VK_LEFT){
 		
                     playerShip.moveLeft();
+                    playerShip.checkCollision();
 		}
 		if(k == e.VK_RIGHT){
 			playerShip.moveRight();
+                        playerShip.checkCollision();
 		}
                 if(k == e.VK_E){
 			atmospheretest.GravityTest.game.inState = 2;

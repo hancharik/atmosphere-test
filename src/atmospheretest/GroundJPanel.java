@@ -51,7 +51,10 @@ public class GroundJPanel extends JPanel implements ActionListener, KeyListener{
        count = 0;
        speed = 10;
        setLayout(null);
-       setBackground(Color.green);
+       int red = 47;//red
+       int green = 238;//green
+       int blue = 240;//blue
+       setBackground(Color.getHSBColor((float)red, (float)blue, (float)green));//setBackground(Color.green);
        
        //counter.setText("hello");
        //counter.setLocation(200, 200);
