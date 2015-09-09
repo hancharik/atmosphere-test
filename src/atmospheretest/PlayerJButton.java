@@ -24,17 +24,26 @@ public class PlayerJButton extends JButton{
     int xCord = 240;//1 + randomNumber.nextInt( 470 );
     int yCord = 20; // + randomNumber.nextInt( 470 );
     int bounds = side;
+    int speed;
     
    public PlayerJButton(int size){
        
        super();
        this.side = size;
+       this.setText(null);
        setBounds(new Rectangle(xCord,yCord,side,side));
        
                int r1 = 1 + randomNumber.nextInt( 255 );
                int r2 = 1 + randomNumber.nextInt( 255 );
                int r3 = 1 + randomNumber.nextInt( 255 );
                setBackground(Color.getHSBColor((float)r1, (float)r2, (float)r3));
+               
+                int thisSpeed = 1 + randomNumber.nextInt( 10 );
+                this.speed = thisSpeed;
+               
+               
+               
+               
        
    } 
     
@@ -83,8 +92,13 @@ public class PlayerJButton extends JButton{
    public void moveDown(int amount){
 	   setBounds(new Rectangle( this.getX(), this.getY() + amount, side, side));
    }
-   public void moveLeft(int amount){
-	   setBounds(new Rectangle( this.getX() - amount, this.getY(), side, side));
+   public void moveLeft(){
+	   setBounds(new Rectangle( this.getX() - this.speed, this.getY(), side, side));
+           if(this.getX()<0){
+                       this.setLocation(500, this.getY());
+                       this.repaint();
+                   }
+           //this.setLocation(this.getX() - amount, this.getY());
    }
    public void moveRight(int amount){
 	   setBounds(new Rectangle( this.getX() + amount, this.getY(), side, side));

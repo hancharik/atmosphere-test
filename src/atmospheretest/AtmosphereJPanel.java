@@ -11,21 +11,25 @@ package atmospheretest;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 
 
 
 public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListener{
     
+    Random random;
     Timer t;
     int delay = 1;
-    PlayerJButton playerShip = new PlayerJButton(20);
+    PlayerJButton playerShip;// = new PlayerJButton(20);v 
     int count;
     int speed;
     JLabel counter = new JLabel();
     int gravity = 80; //20 is highest gravity, 200 is lowest, 40 is good gameplay
     int thrusters = 20;//40 is good, 20 is good gameplay
-    
+    ArrayList<PlayerJButton> rockList = new ArrayList<PlayerJButton>();
+    int asteroidAmount = 10;
     
     /*  PlayerJButton b2 = new PlayerJButton();
     PlayerJButton b3 = new PlayerJButton();
@@ -42,9 +46,35 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
        setLayout(null);
        setBackground(Color.white);
        
-       counter.setText("hello");
-       counter.setLocation(200, 200);
        
+       
+       // add flying obstacles
+       
+       for(int i = 0; i < asteroidAmount; i++){
+           random = new Random();
+           int x = 1 + random.nextInt( 480 );
+           random = new Random();
+           int y = 40 + random.nextInt( 160 );
+           
+           
+           rockList.add(new PlayerJButton(20)) ;
+        rockList.get(i).setLocation(x, y);
+        add(rockList.get(i));
+       }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       //counter.setText("hello");
+      // counter.setLocation(200, 200);
+       playerShip = new PlayerJButton(20);
+       playerShip.setText(null);
+       playerShip.setBackground(Color.white);
        add(playerShip);
        add(counter);
        /*
@@ -61,7 +91,7 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
        //t.setDelay(1);
        //repaint();
        
-   } 
+   } // end constructor
     
     public void actionPerformed(ActionEvent event) 
     {
@@ -81,23 +111,50 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
 		if (obj == t)
 		{
                     
+                    
+                    
+                    
+                    
+                    
                     if(playerShip.getY() < 0){
                     atmospheretest.GravityTest.game.inState = 3;
 			atmospheretest.GravityTest.game.createScreen();
                         atmospheretest.GravityTest.game.repaint();
-                    }
+              
+                    } 
+                        
+                        
+                   for(int i = 0; i < asteroidAmount; i++){
+                        rockList.get(i).moveLeft();
+                        
+                        //rockList.get(i).moveLeft(10);
+                        //rockList.get(i).setLocation(rockList.get(i).getX() - 10, rockList.get(i).getY());
+                    
+                 //  if(rockList.get(i).getX()<0){
+                  //     rockList.get(i).setLocation(500, rockList.get(i).getY());
+                 //      rockList.get(i).repaint();
+                 //  }
+                   
+                   
+                   
+                   }     
+                        
+                        
+                        
+                        
                     
                     
-			if(playerShip.getY() < 240){
+                    
+			if(playerShip.getY() < 230){
 		 playerShip.moveButton(speed);
 			
-		 playerShip.setText("Speed = "+speed);
+		 playerShip.setText("");
 			 count++;
 			 speed = (count/3) + 1;
 			} else{
 				count =  0;
 				 speed = 0;//(count/3) + 1;
-				playerShip.setText("Fire Thrusters");
+				//playerShip.setText("Fire Thrusters");
                                
 				
 		 }
@@ -126,7 +183,7 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
                    //atmospheretest.GravityTest.screen.changeScreens();
 		}
 		if(k == e.VK_RIGHT){
-		playerShip.moveRight(10);	//atmospheretest.GravityTest.screen.changeScreens();
+		//playerShip.moveRight(10);	//atmospheretest.GravityTest.screen.changeScreens();
 		}
     }
 
@@ -147,10 +204,16 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
                   //atmospheretest.GravityTest.screen.add(atmospheretest.GravityTest.screen.landPanel);
                 //atmospheretest.GravityTest.screen.changeScreens();//
                 //atmospheretest.GravityTest.screen.repaint();
-                   playerShip.moveLeft(10);
+                   playerShip.moveLeft();
+                   if(playerShip.getX()<0){
+                       playerShip.setLocation(500, playerShip.getY());
+                   }
 		}
 		if(k == e.VK_RIGHT){
 			playerShip.moveRight(10);
+                        if(playerShip.getX() > 500){
+                       playerShip.setLocation(0, playerShip.getY());
+                   }
 		}
                 if(k == e.VK_E){
                         atmospheretest.GravityTest.game.inState = 1;
@@ -163,9 +226,44 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //throw new UnsupportedOperationException("Not supported yet.");
+ 
+    
     }
+    
+    
+    public void paintComponent(Graphics g) 
+	{
+    	super.paintComponent(g); 
+    	Image skyScreen = Toolkit.getDefaultToolkit().getImage("images/skyBackground.jpg");
+    	g.drawImage(skyScreen, 0, 0, this);    	
+        
+        g.setColor(Color.yellow);
+        //g.drawString("press 'B' for boosters", 100,150);
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
    
     
 

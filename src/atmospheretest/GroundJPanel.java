@@ -61,7 +61,7 @@ public class GroundJPanel extends JPanel implements ActionListener, KeyListener{
        //ship.setBackground(Color.white);
        //ship.setText("S");
        //ship.setLocation(0,0);
-       player.setLocation(300, 100);
+       player.setLocation(20, 20);
       //add(ship);
        add(player);
        //add(ship);
@@ -199,7 +199,7 @@ public class GroundJPanel extends JPanel implements ActionListener, KeyListener{
                 atmospheretest.GravityTest.screen.skyPanel.player.requestFocusInWindow();
                 * */
                     if(player.getX() > 8){
-			player.moveLeft(speed);
+			player.moveLeft();
                         }
                     
 		}
