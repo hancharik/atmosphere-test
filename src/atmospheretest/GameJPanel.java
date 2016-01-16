@@ -60,7 +60,8 @@ public class GameJPanel extends JFrame{
         } else if(inState==3){
            getContentPane().remove(skyPanel);
            getContentPane().add(spacePanel,"Center"); 
-           setVisible(true);
+           repaint();
+            setVisible(true);
            spacePanel.playerShip.requestFocusInWindow();
                 }
     
