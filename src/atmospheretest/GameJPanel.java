@@ -21,7 +21,7 @@ public class GameJPanel extends JFrame{
     SolarSystemJPanel spacePanel = new SolarSystemJPanel(9);
     AtmosphereJPanel skyPanel = new AtmosphereJPanel();
     GroundJPanel landPanel = new GroundJPanel();
-    int inState = 2;
+    int inState = 3; //  this number sets the start state of the game: 1 for ground, 2 for sky, 3 for space
     boolean fromSpace = false;
     
     
