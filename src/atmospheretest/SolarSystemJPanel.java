@@ -143,12 +143,12 @@ public void keyPressed(KeyEvent e){
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+      //  throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+//        throw new UnsupportedOperationException("Not supported yet.");
     }
    
    

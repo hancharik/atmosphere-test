@@ -54,8 +54,8 @@ public class GroundJPanel extends JPanel implements ActionListener, KeyListener{
        int red = 47;//red
        int green = 238;//green
        int blue = 240;//blue
-       setBackground(Color.getHSBColor((float)red, (float)blue, (float)green));//setBackground(Color.green);
-       
+       //setBackground(Color.getHSBColor((float)red, (float)blue, (float)green));//setBackground(Color.green);
+       setBackground(Color.green);
        //counter.setText("hello");
        //counter.setLocation(200, 200);
        //ship.setBackground(Color.white);
@@ -229,7 +229,7 @@ public class GroundJPanel extends JPanel implements ActionListener, KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       // throw new UnsupportedOperationException("Not supported yet.");
     }
 }
    
