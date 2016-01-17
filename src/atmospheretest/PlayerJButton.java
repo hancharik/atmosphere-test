@@ -92,8 +92,8 @@ public class PlayerJButton extends JButton{
    public void moveDown(int amount){
 	   setBounds(new Rectangle( this.getX(), this.getY() + amount, side, side));
    }
-   public void moveLeft(){
-	   setBounds(new Rectangle( this.getX() - this.speed, this.getY(), side, side));
+   public void moveLeft(int amount){
+	   setBounds(new Rectangle( this.getX() - amount, this.getY(), side, side));
            if(this.getX()<0){
                        this.setLocation(500, this.getY());
                        this.repaint();

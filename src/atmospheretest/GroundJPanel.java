@@ -199,7 +199,7 @@ public class GroundJPanel extends JPanel implements ActionListener, KeyListener{
                 atmospheretest.GravityTest.screen.skyPanel.player.requestFocusInWindow();
                 * */
                     if(player.getX() > 8){
-			player.moveLeft();
+			player.moveLeft(speed);
                         }
                     
 		}

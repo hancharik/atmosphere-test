@@ -133,7 +133,7 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
                         
                         
                    for(int i = 0; i < asteroidAmount; i++){
-                        rockList.get(i).moveLeft();
+                        rockList.get(i).moveLeft(rockList.get(i).speed);
                         
                         //rockList.get(i).moveLeft(10);
                         //rockList.get(i).setLocation(rockList.get(i).getX() - 10, rockList.get(i).getY());
@@ -212,7 +212,7 @@ public class AtmosphereJPanel extends JPanel implements ActionListener, KeyListe
                   //atmospheretest.GravityTest.screen.add(atmospheretest.GravityTest.screen.landPanel);
                 //atmospheretest.GravityTest.screen.changeScreens();//
                 //atmospheretest.GravityTest.screen.repaint();
-                   playerShip.moveLeft();
+                   playerShip.moveLeft(10);
                    if(playerShip.getX()<0){
                        playerShip.setLocation(500, playerShip.getY());
                    }
